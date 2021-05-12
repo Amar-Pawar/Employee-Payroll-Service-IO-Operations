@@ -32,6 +32,7 @@ public class EmployeePayrollService {
 		
 		service.readData(new Scanner(System.in));
 		service.writeData(IOService.FILE_ID);
+		service.printData();
 		
 	}
 	
@@ -70,6 +71,16 @@ public class EmployeePayrollService {
 		data.add(new EmployeePayrollData(id, name, sal));
 		
 	}
+	
+	public void printData() {
+		try {
+			Files.lines(new File("C:/Users/www.abcom.in/eclipse-workspace/Day27/src/com/io/Employee.txt").toPath())
+				.forEach(System.out::println);
+		}catch (IOException e) {
+			e.printStackTrace();
+		}	
+	}
+
 
 }
 
